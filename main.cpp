@@ -16,13 +16,68 @@ float f4(float x, int intensity);
 }
 #endif
 
-  
-int main (int argc, char* argv[]) {
+double numericalintegration(int functionid, double a, double b, int n, int intensity)
+{
+  double step1 = (b-a)/n;
+  double area = 0; // area of each rectangle
+  double total = 0; // area of one rectangle
+  if(functionid ==  1){
 
-  if (argc < 6) {
+  for(int i = 0; i < n; i++)
+    {
+      area = step1 * f1(a + (i-1)*step1, intensity);
+      total = area+total;
+    }
+  }
+  else if(functionid == 2){
+
+  for(int i = 0; i < n; i++)
+    {
+      area = step1 *  f2(a + (i-1)*step1, intensity);
+      total = area+total;
+    }
+  }
+  else if(functionid == 3){
+
+  for(int i = 0; i < n; i++)
+    {
+       area = step1 * f3(a + (i-1)*step1, intensity);
+       total = area+total;
+    }
+  }
+  else if (functionid == 4){
+
+  for(int i = 0; i < n; i++)
+    {
+      area = step1 * f4(a + (i-1)*step1, intensity);
+      total = area+total;
+    }
+  }
+  else{
+    return 1.0;
+  }
+  return total;
+}
+int main (int argc, char* argv[]) {
+  using namespace std::chrono;
+ if (argc < 6) {
     std::cerr<<"usage: "<<argv[0]<<" <functionid> <a> <b> <n> <intensity>"<<std::endl;
     return -1;
   }
-  
-  return 0;
+ double integral = 0;
+ 
+  int functionid = atoi(argv[1]);
+  float a = atof(argv[2]);
+  float b = atof(argv[3]);
+  int n = atoi(argv[4]);
+  int intensity = atoi(argv[5]);
+
+  auto start = std::chrono::steady_clock::now();
+  integral = numericalintegration(functionid, a, b, n, intensity);
+  auto end = std::chrono::steady_clock::now();
+  auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+  float time = microseconds/1000000.0;
+  std::cout << integral << std::endl;
+  std::cerr << std::to_string(time) << " Seconds" << std::endl;
+  return 1;
 }
