@@ -25,7 +25,7 @@ double numericalintegration(int functionid, double a, double b, int n, int inten
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 * f1(a + (i-.5)*step1, intensity) + 1;
+      area = step1 * f1(a + (i-.5)*step1, intensity);
       total = area+total;
     }
   }
@@ -33,7 +33,7 @@ double numericalintegration(int functionid, double a, double b, int n, int inten
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 *  f2(a + (i-.5)*step1, intensity) + 1;
+      area = step1 *  f2(a + (i-.5)*step1, intensity);
       total = area+total;
     }
   }
@@ -41,7 +41,7 @@ double numericalintegration(int functionid, double a, double b, int n, int inten
 
   for(int i = 0; i < n; i++)
     {
-       area = step1 * f3(a + (i-.5)*step1, intensity) + 1;
+       area = step1 * f3(a + (i-.5)*step1, intensity);
        total = area+total;
     }
   }
@@ -49,7 +49,7 @@ double numericalintegration(int functionid, double a, double b, int n, int inten
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 * f4(a + (i-.5)*step1, intensity) + 1;
+      area = step1 * f4(a + (i-.5)*step1, intensity);
       total = area+total;
     }
   }
