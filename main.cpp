@@ -16,11 +16,11 @@ float f4(float x, int intensity);
 }
 #endif
 
-double numericalintegration(int functionid, double a, double b, int n, int intensity)
+float numericalintegration(int functionid, float a, float b, int n, int intensity)
 {
-  double step1 = (b-a)/n;
-  double area = 0; // area of each rectangle
-  double total = 0; // area of one rectangle
+  float step1 = (b-a)/n;
+  float area = 0; // area of each rectangle
+  float total = 0; // area of one rectangle
   if(functionid ==  1){
 
   for(int i = 0; i < n; i++)
