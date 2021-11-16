@@ -25,7 +25,7 @@ float numericalintegration(int functionid, float a, float b, int n, int intensit
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 * f1(a + (i-.5)*step1, intensity);
+      area = step1 * f1(a + (i+.5)*step1, intensity);
       total = area+total;
     }
   }
@@ -33,7 +33,7 @@ float numericalintegration(int functionid, float a, float b, int n, int intensit
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 *  f2(a + (i-.5)*step1, intensity);
+      area = step1 *  f2(a + (i+.5)*step1, intensity);
       total = area+total;
     }
   }
@@ -41,7 +41,7 @@ float numericalintegration(int functionid, float a, float b, int n, int intensit
 
   for(int i = 0; i < n; i++)
     {
-       area = step1 * f3(a + (i-.5)*step1, intensity);
+       area = step1 * f3(a + (i+.5)*step1, intensity);
        total = area+total;
     }
   }
@@ -49,7 +49,7 @@ float numericalintegration(int functionid, float a, float b, int n, int intensit
 
   for(int i = 0; i < n; i++)
     {
-      area = step1 * f4(a + (i-.5)*step1, intensity);
+      area = step1 * f4(a + (i+.5)*step1, intensity);
       total = area+total;
     }
   }
