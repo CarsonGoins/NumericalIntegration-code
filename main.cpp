@@ -34,7 +34,7 @@ double numericalintegration(int functionid, double a, double b, int n, int inten
   for(int i = 0; i < n; i++)
     {
       area = step1 *  f2(a + (i-.5)*step1, intensity);
-      total = 1+area+total;
+      total = area+total;
     }
   }
   else if(functionid == 3){
